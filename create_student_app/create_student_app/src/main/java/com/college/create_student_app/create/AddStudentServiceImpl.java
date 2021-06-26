@@ -16,14 +16,26 @@ public class AddStudentServiceImpl implements AddStudentService {
 	@Autowired
 	FeignProxyClass proxy;
 
+//	@Override
+//	public StudentModel addStudentInSystem(StudentModel stu) throws Exception {
+//		StudentModelTxn t= new StudentModelTxn();
+//		BeanUtils.copyProperties(stu, t);
+//		t.setSts("Inactive");
+//		t=txn.save(t);
+//		
+//		StudentModel s= new StudentModel();
+//			stu.setSts("Active");
+//			 s=repo.save(stu);
+//		return s;
+//	}
+	
+	//feign hystrix
 	@Override
 	public StudentModel addStudentInSystem(StudentModel stu) throws Exception {
 		StudentModelTxn t= new StudentModelTxn();
 		BeanUtils.copyProperties(stu, t);
 		t.setSts("Inactive");
-		t=txn.save(t);
-		
-		
+		t=txn.save(t);	
 		// add fee payment
 		FeeModel fee=new FeeModel();
 		fee.setFeeAmt(stu.getFeeAmt());

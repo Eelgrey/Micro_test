@@ -25,6 +25,7 @@ public class FeeController {
 		logger.info("Port access :: "+ port);
 		FeeModel f=feeService.submitFees(fee);
 		return f;
+		//throw new ArithmeticException();
 	}
 
 }
