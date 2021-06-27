@@ -1,6 +1,6 @@
 package com.college.create_student_app.create;
 
-import org.springframework.cloud.openfeign.FallbackFactory;
+
 import org.springframework.stereotype.Component;
 
 @Component 
